@@ -3,10 +3,11 @@
 #include <exception>
 #include<cmath>
 #include "VectorLenghtException.h"
+
 Vector::Vector(double x, double y, double z): Point(x,y,z) {
 }
-
-Vector::Vector(Point& A, Point& B) : Point(B.get_x()-A.get_x(),B.get_y()-A.get_y(),B.get_z()-A.get_z()) {
+Vector::Vector(Point  A, Point  B) : Point(B.get_x() - A.get_x(), B.get_y() - A.get_y(), B.get_z() - A.get_x())
+{
 }
 Vector::Vector(const Vector & rhs) :Point (rhs){
 }
@@ -18,21 +19,23 @@ Vector& Vector::operator=(const Vector & rhs) {
 }
 double Vector::VectorLength()const
 {
-	// try
-	//{
-	//if(VectorLength()==0){throw VectorLenghtException(VectorLength());}
-	//}
-	//catch(VectorLenghtException& ex)
-	//{
-	//std::cerr<<ex.what()<<std::endl;
-	//return 1;
-	//}
+	
 
 	return sqrt(pow(get_x(), 2) + pow(get_y(), 2) + pow(get_z(), 2));
 }
 Vector Vector::VectorDirection()const
-{
-		return Vector((get_x()) / VectorLength(), (get_y()) / VectorLength(), (get_z()) / VectorLength());
+{/*
+		try
+	{*/
+		if (VectorLength() == 0) { throw VectorLenghtException(VectorLength()); }
+	//}
+	/*catch (VectorLenghtException& ex)
+	{
+		ex.rep(cout);
+		return 1;
+	}*/
+	
+	return Vector((get_x()) / VectorLength(), (get_y()) / VectorLength(), (get_z()) / VectorLength());
 }
 std::ostream& Vector::inserter(std::ostream& out) const {
 	Point::inserter(out);

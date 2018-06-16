@@ -9,14 +9,14 @@ using namespace std;
 
 class VectorLenghtException :public exception {
 public:
-	VectorLenghtException( Vector reason ) :exception("Index:"), reason(reason) {}
+	VectorLenghtException( double reason ) :exception("Index:"), reason(reason) {}
 	
 	ostream& rep(ostream & os) {
-		os << "Duljinata na vektora e nula " << endl;
+		os << "The length of the vector is 0. " << endl;
 		return os;
 	}
 private: 
-	Vector reason;
+	double reason;
 };
 
 #endif

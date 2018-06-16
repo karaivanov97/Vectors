@@ -7,7 +7,7 @@
 class Vector : public Point {
 public:
 	Vector(double = 0., double = 0., double = 0.);
-	Vector(Point&, Point&);
+	Vector(Point, Point);
 	Vector(const Vector &);
 	Vector & operator =(const Vector &);
 	double VectorLength()const;

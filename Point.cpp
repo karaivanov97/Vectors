@@ -27,6 +27,16 @@ double Point::get_y() const {
 double Point::get_z() const {
 	return z;
 }
+void Point::set_x(double x) {
+	this->x = x;
+}
+void Point::set_y(double y) {
+	this->y = y;
+}
+void Point::set_z(double z) {
+	this->z = z;
+}
+
  std::ostream& Point::inserter(std::ostream& out) const {
 	 Element::inserter(out);
 	 out << "x = " << x << "\n";
