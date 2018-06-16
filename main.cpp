@@ -17,10 +17,13 @@ int main() {
 	unsigned int figure;
 	double realnoChislo;
 	size_t metod;
-	cout << "Choose a figure: 1. Point 2. Vector 3. Line 4. Triangle";
+	int a;
+	
+	Label2: cout << "Choose a figure: 1. Point 2. Vector 3. Line 4. Triangle";
 	cin >> figure;
 	switch (figure) {
 	case 1:
+		Label1:
 		cout << "Vuvedi tochka: ";
 		cin >> p1;
 		cout << "Izberete operaciq za obekta: " << endl <<
@@ -33,6 +36,14 @@ int main() {
 				cout << "yes";
 			else {
 				cout << "no";
+			}
+			cout << "ako iskash nova operaciq vuvedi 1, ako iskash nov obekt, vuvedi 2";
+			cin >> a;
+			if (a==1) {
+				goto Label1;
+			}
+			else if (a==2){
+				goto Label2;
 			}
 			break;
 		}
