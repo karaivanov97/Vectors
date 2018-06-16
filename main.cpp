@@ -3,7 +3,7 @@
 #include "Vector.h"
 #include "Line.h"
 #include "Triangel.h"
-
+#include <string>
 #include <iostream>
 
 using namespace std;
@@ -17,16 +17,16 @@ int main() {
 	unsigned int figure;
 	double realnoChislo;
 	size_t metod;
-	int a;
+	char input = ' ';
+	char input2 = ' ';
 	
 	Label2: cout << "Choose a figure: 1. Point 2. Vector 3. Line 4. Triangle";
 	cin >> figure;
 	switch (figure) {
 	case 1:
-		Label1:
 		cout << "Vuvedi tochka: ";
 		cin >> p1;
-		cout << "Izberete operaciq za obekta: " << endl <<
+		Label1:		cout << "Izberete operaciq za obekta: " << endl <<
 			"1. Proverka dali 2 tochki suvpadat" << endl;
 		cin >> metod;
 		switch (metod) {
@@ -37,13 +37,18 @@ int main() {
 			else {
 				cout << "no";
 			}
-			cout << "ako iskash nova operaciq vuvedi 1, ako iskash nov obekt, vuvedi 2";
-			cin >> a;
-			if (a==1) {
+			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cin >> input;
+				if (input=='y') {
 				goto Label1;
 			}
-			else if (a==2){
-				goto Label2;
+			else if (input=='n'){
+				cout << "Jelaete li da izberete nov geometrichen obekt@ (y/n)" << endl;
+				cin >> input2;
+				if (input == 'y') {
+
+					goto Label2;
+				}
 			}
 			break;
 		}
@@ -305,6 +310,5 @@ int main() {
 		break;
 	}
 
-	system("pause");
-	return 0;
+return 0;
 }
