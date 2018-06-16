@@ -3,8 +3,9 @@
 #include "Vector.h"
 #include "Line.h"
 #include "Triangel.h"
-#include <string>
 #include <iostream>
+#include <fstream>
+#include <exception>
 
 using namespace std;
 
@@ -18,7 +19,7 @@ int main() {
 	double realnoChislo;
 	size_t metod;
 	char input = ' ';
-	
+
 	Label2: cout << "Choose a figure: 1. Point 2. Vector 3. Line 4. Triangle";
 	cin >> figure;
 	switch (figure) {
@@ -57,7 +58,7 @@ int main() {
 	case 2:
 		cout << "Vuvedi vektor: ";
 		cin >> v1;
-		Label1: cout << "Izberete operaciq za obekta: " << endl <<
+		Label3: cout << "Izberete operaciq za obekta: " << endl <<
 			"1. Izchislqvane na duljina na vektor" << endl <<
 			"2. Izchislqvane na posoka na vektor" << endl <<
 			"3. Proekciq na vektor vurhu drug vektor" << endl <<
@@ -76,7 +77,7 @@ int main() {
 			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
-				goto Label1;
+				goto Label3;
 			}
 			else if (input == 'n') {
 				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -94,7 +95,7 @@ int main() {
 			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
-				goto Label1;
+				goto Label3;
 			}
 			else if (input == 'n') {
 				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -114,7 +115,7 @@ int main() {
 			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
-				goto Label1;
+				goto Label3;
 			}
 			else if (input == 'n') {
 				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -137,7 +138,7 @@ int main() {
 			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
-				goto Label1;
+				goto Label3;
 			}
 			else if (input == 'n') {
 				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -162,7 +163,7 @@ int main() {
 			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
-				goto Label1;
+				goto Label3;
 			}
 			else if (input == 'n') {
 				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -187,7 +188,7 @@ int main() {
 			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
-				goto Label1;
+				goto Label3;
 			}
 			else if (input == 'n') {
 				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -207,7 +208,7 @@ int main() {
 			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
-				goto Label1;
+				goto Label3;
 			}
 			else if (input == 'n') {
 				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -227,7 +228,7 @@ int main() {
 			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
-				goto Label1;
+				goto Label3;
 			}
 			else if (input == 'n') {
 				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -247,7 +248,7 @@ int main() {
 			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
-				goto Label1;
+				goto Label3;
 			}
 			else if (input == 'n') {
 				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -268,7 +269,7 @@ int main() {
 			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
-				goto Label1;
+				goto Label3;
 			}
 			else if (input == 'n') {
 				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -290,7 +291,7 @@ int main() {
 			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
-				goto Label1;
+				goto Label3;
 			}
 			else if (input == 'n') {
 				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -311,7 +312,7 @@ int main() {
 		cout << "Vuvedi tochka: ";
 		cin >> p2;
 		Line l1(p1, p2);
-	Label1:	cout << "Izberete operaciq za obekta: " << endl <<
+	Label4:	cout << "Izberete operaciq za obekta: " << endl <<
 			"1. Namirane posoka na liniqta" << endl <<
 			"2. Namirane na normalen vektor" << endl <<
 			"3. Namirane na ugul mejdu 2 pravi" << endl <<
@@ -329,7 +330,7 @@ int main() {
 			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
-				goto Label1;
+				goto Label4;
 			}
 			else if (input == 'n') {
 				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -348,7 +349,7 @@ int main() {
 			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
-				goto Label1;
+				goto Label4;
 			}
 			else if (input == 'n') {
 				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -369,7 +370,7 @@ int main() {
 			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
-				goto Label1;
+				goto Label4;
 			}
 			else if (input == 'n') {
 				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -395,7 +396,7 @@ int main() {
 			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
-				goto Label1;
+				goto Label4;
 			}
 			else if (input == 'n') {
 				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -422,7 +423,7 @@ int main() {
 				cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
-					goto Label1;
+					goto Label4;
 				}
 				else if (input == 'n') {
 					cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -449,7 +450,7 @@ int main() {
 				cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
-					goto Label1;
+					goto Label4;
 				}
 				else if (input == 'n') {
 					cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -476,7 +477,7 @@ int main() {
 				cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
-					goto Label1;
+					goto Label4;
 				}
 				else if (input == 'n') {
 					cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -503,7 +504,7 @@ int main() {
 				cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
-					goto Label1;
+					goto Label4;
 				}
 				else if (input == 'n') {
 					cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -533,7 +534,7 @@ int main() {
 	cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 	cin >> input;
 	if (input == 'y') {
-		goto Label1;
+		goto Label4;
 	}
 	else if (input == 'n') {
 		cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -554,7 +555,7 @@ int main() {
 		cout << "Vuvedi tochka: ";
 		cin >> p3;
 			Triangle t1(p1, p2, p3);
-		Label1:	cout << "Izberete operaciq za obekta: " << endl <<
+		Label5:	cout << "Izberete operaciq za obekta: " << endl <<
 				"1. Opredelenq vida na triugulnika " << endl <<
 				"2. Namirane na liceto na triugulnika " << endl <<
 				"3. Namirane na perimetura na triugulnika " << endl <<
@@ -569,7 +570,7 @@ int main() {
 			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
-				goto Label1;
+				goto Label5;
 			}
 			else if (input == 'n') {
 				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -587,7 +588,7 @@ int main() {
 				cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
-					goto Label1;
+					goto Label5;
 				}
 				else if (input == 'n') {
 					cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -605,7 +606,7 @@ int main() {
 				cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
-					goto Label1;
+					goto Label5;
 				}
 				else if (input == 'n') {
 					cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -623,7 +624,7 @@ int main() {
 				cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
-					goto Label1;
+					goto Label5;
 				}
 				else if (input == 'n') {
 					cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -648,7 +649,7 @@ int main() {
 				cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
-					goto Label1;
+					goto Label5;
 				}
 				else if (input == 'n') {
 					cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -673,7 +674,7 @@ int main() {
 				cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
-					goto Label1;
+					goto Label5;
 				}
 				else if (input == 'n') {
 					cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
@@ -698,7 +699,7 @@ int main() {
 				cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
-					goto Label1;
+					goto Label5;
 				}
 				else if (input == 'n') {
 					cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
