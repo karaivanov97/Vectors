@@ -29,11 +29,11 @@ int main() {
 		switch (metod) {
 		case 1:
 			cin >> p2;
-		if(	p1 == p2)
-			cout << "yes";
-		else {
-			cout << "no";
-		}
+			if (p1 == p2)
+				cout << "yes";
+			else {
+				cout << "no";
+			}
 			break;
 		}
 		break;
@@ -111,24 +111,24 @@ int main() {
 		case 10:
 			cout << "Vuvedete vtori vektor: " << endl;
 			cin >> v2;
-	           v3= v1^v2;
-			   cout << v3;
+			v3 = v1^v2;
+			cout << v3;
 			break;
 		case 11:
 			cout << "Vuvedete vtori vektor: " << endl;
 			cin >> v2;
 			cout << "Vuvedete treti vektor: " << endl;
 			cin >> v3;
-		cout << 	v1(v2, v3);
+			cout << v1(v2, v3);
 			break;
 		}
 		break;
-	case 3:
+	case 3: {
 		cout << "Vuvedi tochka: ";
 		cin >> p1;
 		cout << "Vuvedi tochka: ";
 		cin >> p2;
-		Line l1(p1, p2); 
+		Line l1(p1, p2);
 		cout << "Izberete operaciq za obekta: " << endl <<
 			"1. Namirane posoka na liniqta" << endl <<
 			"2. Namirane na normalen vektor" << endl <<
@@ -142,29 +142,155 @@ int main() {
 		cin >> metod;
 		switch (metod) {
 		case 1:
-			cout << l1;
 			cout << "Posoka na liniqta: ";
 			cout << l1.LineDirection();
 			break;
 		case 2:
+			cout << "Normalen vektor: ";
+			cout << l1.NormalVector();
 			break;
-		case 3:
-			break;
-		case 4:
-			break;
-		case 5:
-			break;
-		case 6:
-			break;
-		case 7:
-			break;
-		case 8:
-			break;
-		case 9:
-			break;
+		case 3: {
+			cout << "vuvedete tochki za vtora liniq: " << endl;
+			cin >> p3 >> p4;
+			Line l2(p3, p4);
+			cout << l1.AngleBetweenLines(l2);
 		}
-		break;
-	case 4:
+				break;
+		case 4:
+			cout << "Vuvedete tochka: ";
+			cin >> p3;
+			if (l1 + p1) {
+				cout << "Yes";
+			}
+			else {
+				cout << "No";
+			}
+			break;
+		case 5: {
+			cout << "vuvedete tochki za vtora liniq: " << endl;
+			cin >> p3 >> p4;
+			Line l2(p3, p4);
+			if (l1 || l2) {
+				cout << "Yes";
+			}
+			else {
+				cout << "No";
+			}
+		}
+				break;
+		case 6: {
+			cout << "vuvedete tochki za vtora liniq: " << endl;
+			cin >> p3 >> p4;
+			Line l2(p3, p4);
+			if (l1 == l2) {
+				cout << "Yes";
+			}
+			else {
+				cout << "No";
+			}
+		}
+				break;
+		case 7: {
+			cout << "vuvedete tochki za vtora liniq: " << endl;
+			cin >> p3 >> p4;
+			Line l2(p3, p4);
+			if (l1 && l2) {
+				cout << "Yes";
+			}
+			else {
+				cout << "No";
+			}
+		}
+				break;
+		case 8: {
+			cout << "vuvedete tochki za vtora liniq: " << endl;
+			cin >> p3 >> p4;
+			Line l2(p3, p4);
+			if (l1 != l2) {
+				cout << "Yes";
+			}
+			else {
+				cout << "No";
+			}
+		}
+				break;
+		case 9: {
+			cout << "vuvedete tochki za vtora liniq: " << endl;
+			cin >> p3 >> p4;
+			Line l2(p3, p4);
+			if (l1 | l2) {
+				cout << "Yes";
+			}
+			else {
+				cout << "No";
+			}
+		}
+				break;
+		}
+	}
+			break;
+	case 4: {
+		cout << "Vuvedi tochka: ";
+		cin >> p1;
+		cout << "Vuvedi tochka: ";
+		cin >> p2;
+		cout << "Vuvedi tochka: ";
+		cin >> p3;
+			Triangle t1(p1, p2, p3);
+			cout << "Izberete operaciq za obekta: " << endl <<
+				"1. Opredelenq vida na triugulnika " << endl <<
+				"2. Namirane na liceto na triugulnika " << endl <<
+				"3. Namirane na perimetura na triugulnika " << endl <<
+				"4. Namirane na medicentura na triugulnika " << endl <<
+				"5. Proverka dali tochka e ot vutreshnostta na triugulnika " << endl <<
+				"6. Proverka dali tochka e izvun triugulnika " << endl <<
+				"7. Proverka dali tochka leji vurhu nqkoq ot stranite na triugulnika " << endl;
+			cin >> metod;
+			switch (metod) {
+			case 1:
+			t1.TriangleType();
+				break;
+			case 2:
+				cout << t1.AreaTriangle();
+				break;
+			case 3:
+				cout << t1.TrianglePerimeter();
+				break;
+			case 4:
+				cout << t1.centroid();
+				break;
+			case 5:
+				cout << "Vuvedi tochka: ";
+				cin >> p1;
+				if (p1 < t1) {
+					cout << "Yes";
+				}
+				else {
+					cout << "No";
+				}
+				break;
+			case 6:
+				cout << "Vuvedi tochka: ";
+				cin >> p1;
+				if (p1 > t1) {
+					cout << "Yes";
+				}
+				else {
+					cout << "No";
+				}
+				break;
+			case 7:
+				cout << "Vuvedi tochka: ";
+				cin >> p1;
+				if (p1 == t1) {
+					cout << "Yes";
+				}
+				else {
+					cout << "No";
+				}
+				break;
+			}
+	}
 		break;
 	}
 
