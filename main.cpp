@@ -586,30 +586,41 @@ int main() {
 
 
 	case 4: {
-	/*	try {
-			cout << "Vuvedete vtori vektor: " << endl;
-			cin >> v2;
-			if (v1.VectorsPerpendicular(v2) == true) {
-				cout << "yes";
-			}
-			else {
-				cout << "no";
-			}
-		}
-		catch (VectorLenghtException &ex) {
-			ex.rep(cerr);
-			cerr << ex.what() << " by " << typeid(ex).name() << endl;
-			system("pause");
-			return 3;
-		}*/ 
+		try {
+	
 		cout << "Vuvedi tochka: ";
 		cin >> p1;
 		cout << "Vuvedi tochka: ";
 		cin >> p2;
 		cout << "Vuvedi tochka: ";
 		cin >> p3;
+		if (p1 == p2) {
+			throw EqualPointException(p1, p2);
+		}
+		if (p1 == p3) {
+			throw EqualPointException(p1, p3);
+		}
+		if (p2 == p3) {
+			throw EqualPointException(p2, p3);
+		}
+
+		}
+		catch (EqualPointException &ex) {
+			ex.rep(cerr);
+			cerr << ex.what() << " by " << typeid(ex).name() << endl;
+			system("pause");
+			return 4;
+		} 
 		Triangle t1(p1, p2, p3);
-	
+
+		//cout << "Vuvedi tochka: ";
+		//cin >> p1;
+		//cout << "Vuvedi tochka: ";
+		//cin >> p2;
+		//cout << "Vuvedi tochka: ";
+		//cin >> p3;
+		//Triangle t1(p1, p2, p3);
+
 		Label5:	cout << "Izberete operaciq za obekta: " << endl <<
 				"1. Opredelenq vida na triugulnika " << endl <<
 				"2. Namirane na liceto na triugulnika " << endl <<
