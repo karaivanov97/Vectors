@@ -8,7 +8,7 @@ public:
 	Triangle(Point, Point, Point);
 	Triangle(const Triangle&);
 	Triangle & operator=(const Triangle &);
-
+	virtual ~Triangle() {}
 	void TriangleType()const;
 	double TrianglePerimeter()const;
 	double AreaTriangle()const;

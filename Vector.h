@@ -10,6 +10,7 @@ public:
 	Vector(Point, Point);
 	Vector(const Vector &);
 	Vector & operator =(const Vector &);
+	virtual ~Vector() {}
 	double VectorLength()const;
 	Vector VectorDirection()const;
 

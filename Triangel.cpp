@@ -1,8 +1,12 @@
 #include "Triangel.h"
+#include "EqualPointException.h"
 #include<cmath>
 
 Triangle::Triangle(Point A, Point B, Point C) :A(A), B(B), C(C)
 {
+	if (A == B) {	throw EqualPointException(A,B);}
+	//if (A == C) { throw EqualPointException(A, C); }
+	//if (B == C) { throw EqualPointException(B, C); }
 }
 
 Triangle::Triangle(const Triangle& rhs) : Point(rhs)

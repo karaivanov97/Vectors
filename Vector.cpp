@@ -24,17 +24,8 @@ double Vector::VectorLength()const
 	return sqrt(pow(get_x(), 2) + pow(get_y(), 2) + pow(get_z(), 2));
 }
 Vector Vector::VectorDirection()const
-{/*
-		try
-	{*/
+{
 		if (VectorLength() == 0) { throw VectorLenghtException(VectorLength()); }
-	//}
-	/*catch (VectorLenghtException& ex)
-	{
-		ex.rep(cout);
-		return 1;
-	}*/
-	
 	return Vector((get_x()) / VectorLength(), (get_y()) / VectorLength(), (get_z()) / VectorLength());
 }
 std::ostream& Vector::inserter(std::ostream& out) const {
@@ -54,9 +45,11 @@ std::ostream& Vector::inserter(std::ostream& out) const {
 	 return get_x() == 0 && get_y() == 0 && get_z() == 0;
  }
  bool Vector::VectorsParallel(const Vector & rhs)const {
+	 if (VectorLength() == 0||rhs.VectorLength()==0) { throw VectorLenghtException(VectorLength()); }
 	 return (get_x() / rhs.get_x()) == (get_y() / rhs.get_y()) == (get_z() / rhs.get_z());
  }
  bool Vector::VectorsPerpendicular(const Vector & rhs)const {
+	 if (VectorLength() == 0 || rhs.VectorLength() == 0) { throw VectorLenghtException(VectorLength()); }
 	 return (get_x()*rhs.get_x() + get_y()*rhs.get_y() + get_z()*rhs.get_z()) == 0;
  }
 

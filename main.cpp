@@ -6,6 +6,8 @@
 #include <iostream>
 #include <fstream>
 #include <exception>
+#include "VectorLenghtException.h"
+#include "EqualPointException.h"
 
 using namespace std;
 
@@ -90,8 +92,17 @@ int main() {
 				}
 			}
 			break;
-		case 2:
+		case 2:try {
+		
 			cout << "posokata na vektora e:" << v1.VectorDirection();
+			
+		}
+			   catch (VectorLenghtException &ex){
+				   ex.rep(cerr);
+				   cerr << ex.what() << " by " << typeid(ex).name() << endl;
+				   system("pause");
+				   return 1;
+			   }
 			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
@@ -152,13 +163,21 @@ int main() {
 			}
 			break;
 		case 5:
-			cout << "Vuvedete vtori vektor: " << endl;
-			cin >> v2;
-			if (v1.VectorsParallel(v2) == true) {
-				cout << "yes";
+			try {
+				cout << "Vuvedete vtori vektor: " << endl;
+				cin >> v2;
+				if (v1.VectorsParallel(v2) == true) {
+					cout << "yes";
+				}
+				else {
+					cout << "no";
+				}
 			}
-			else {
-				cout << "no";
+			catch (VectorLenghtException &ex) {
+				ex.rep(cerr);
+				cerr << ex.what() << " by " << typeid(ex).name() << endl;
+				system("pause");
+				return 2;
 			}
 			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 			cin >> input;
@@ -177,13 +196,21 @@ int main() {
 			}
 			break;
 		case 6:
-			cout << "Vuvedete vtori vektor: " << endl;
-			cin >> v2;
-			if (v1.VectorsPerpendicular(v2) == true) {
-				cout << "yes";
+			try {
+				cout << "Vuvedete vtori vektor: " << endl;
+				cin >> v2;
+				if (v1.VectorsPerpendicular(v2) == true) {
+					cout << "yes";
+				}
+				else {
+					cout << "no";
+				}
 			}
-			else {
-				cout << "no";
+			catch (VectorLenghtException &ex) {
+				ex.rep(cerr);
+				cerr << ex.what() << " by " << typeid(ex).name() << endl;
+				system("pause");
+				return 3;
 			}
 			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
 			cin >> input;
@@ -559,13 +586,30 @@ int main() {
 
 
 	case 4: {
+	/*	try {
+			cout << "Vuvedete vtori vektor: " << endl;
+			cin >> v2;
+			if (v1.VectorsPerpendicular(v2) == true) {
+				cout << "yes";
+			}
+			else {
+				cout << "no";
+			}
+		}
+		catch (VectorLenghtException &ex) {
+			ex.rep(cerr);
+			cerr << ex.what() << " by " << typeid(ex).name() << endl;
+			system("pause");
+			return 3;
+		}*/ 
 		cout << "Vuvedi tochka: ";
 		cin >> p1;
 		cout << "Vuvedi tochka: ";
 		cin >> p2;
 		cout << "Vuvedi tochka: ";
 		cin >> p3;
-			Triangle t1(p1, p2, p3);
+		Triangle t1(p1, p2, p3);
+	
 		Label5:	cout << "Izberete operaciq za obekta: " << endl <<
 				"1. Opredelenq vida na triugulnika " << endl <<
 				"2. Namirane na liceto na triugulnika " << endl <<
@@ -727,6 +771,6 @@ int main() {
 	}
 		break;
 	}
-
+	system("pause");
 return 0;
 }
