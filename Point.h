@@ -8,6 +8,8 @@ public:
 	Point(double = 0., double = 0., double = 0.);
 	Point(const Point &);
 	Point & operator=(const Point &);
+	virtual ~Point() {}
+	//Метод за проверка дали две точки съвпадат
 	bool operator==(const Point &);
 	 double get_x() const;
 	 double get_y() const;

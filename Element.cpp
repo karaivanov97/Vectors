@@ -2,7 +2,7 @@
 #include <iostream>
 
 std::ostream& Element::inserter(std::ostream& out)const {
-	out << "An element is created. \n";
+	out << " ";
 	return out;
  }
 

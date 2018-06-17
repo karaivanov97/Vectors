@@ -27,8 +27,8 @@ Line & Line::operator=(const Line& rhs)
 
 std::ostream& Line::inserter(std::ostream &out) const
 {
-	std::cout << "First point: \n" << a;
-	std::cout << "Second point: \n" << b;
+	std::cout << "Първата точка е: \n" << a;
+	std::cout << "Втората точка е: \n" << b;
 	return out;
 }
 
@@ -52,17 +52,18 @@ Point Line::get_b()const
 {
 	return b;
 }
-
+//Метод за намиране на посока на правата
 Vector Line::LineDirection()const
 {
 	return Vector(b.get_x() - a.get_x(), b.get_y() - a.get_y(), b.get_z() - a.get_z());
 }
-
+//Метод за намиране на нормален вектор
 Vector Line::NormalVector()const
 {
 	Vector v(a, b);
 	return v.VectorDirection();
 }
+//Метод за намиране на ъгъл между две прави
 
 double Line::AngleBetweenLines(const Line& line2)const
 {
@@ -75,7 +76,7 @@ double Line::AngleBetweenLines(const Line& line2)const
 
 	return angle;
 }
-
+//Метод за проверка дали дадена точка лежи на дадената права
 bool Line::operator +(const Point& rhs)const
 {
 	double x = (rhs.get_x() - a.get_x()) / (b.get_x() - a.get_x());
@@ -83,7 +84,7 @@ bool Line::operator +(const Point& rhs)const
 	double z = (rhs.get_z() - a.get_z()) / (b.get_z() - a.get_z());
 	return x == y == z;
 }
-
+//Метод за проверка дали дадена права пресича друга права
 bool Line::operator &&(const Line & rhs)const
 {
 	Vector v1(a, b);
@@ -93,11 +94,13 @@ bool Line::operator &&(const Line & rhs)const
 	double z = v1.get_z() / v2.get_z();
 	return x != y&&x != z&&y != z;
 }
-
+//Метод за проверка дали дадена права е кръстосана с друга права
 bool Line::operator !=(const Line& rhs) const
 {
 	return !(rhs == *this) && !(rhs || *this);
 }
+//Метод за проверка дали дадена права е успоредна на друга права
+
 bool Line::operator ||(const Line& rhs)const
 {
 	double x1 = rhs.a.get_x() - a.get_x();
@@ -111,11 +114,12 @@ bool Line::operator ||(const Line& rhs)const
 
 	return (x1 == x2&&y1 == y2&&z1 == z2&&x1 == y1&&y1 == z1);
 }
-
+//Метод за проверка дали дадена права съвпада с друга права
 bool Line::operator==(const Line& rhs) const
 {
 	return (((*this) + rhs.a) && ((*this) + rhs.b));
 }
+//Метод за проверка дали дадена права е перпендикулярна на друга права
 bool Line::operator |(const Line& rhs)const
 {
 	Vector v1(a, b);

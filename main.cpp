@@ -2,16 +2,18 @@
 #include "Point.h"
 #include "Vector.h"
 #include "Line.h"
-#include "Triangel.h"
+#include "Triangle.h"
 #include <iostream>
 #include <fstream>
 #include <exception>
 #include "VectorLenghtException.h"
 #include "EqualPointException.h"
+#include <locale>
 
 using namespace std;
 
 int main() {
+	locale::global(locale("Bulgarian"));
 	Point p1, p2, p3, p4;
 	Vector v1, v2, v3,v4;
 	Line l1(p1, p2);
@@ -22,30 +24,30 @@ int main() {
 	size_t metod;
 	char input = ' ';
 
-	Label2: cout << "Choose a figure: 1. Point 2. Vector 3. Line 4. Triangle";
+Label2: cout << "Моля изберете вид геометричен обект: 1. Точка, 2. Вектор, 3. Линия, 4. Триъгълник, 5. Отсечка" << endl;
 	cin >> figure;
 	switch (figure) {
 	case 1:
-		cout << "Vuvedi tochka: ";
+		cout << "Моля въведете координатите на точка: " << endl;
 		cin >> p1;
-		Label1:		cout << "Izberete operaciq za obekta: " << endl <<
-			"1. Proverka dali 2 tochki suvpadat" << endl;
+		Label1:		cout << "Моля изберете операция за обекта: " << endl <<
+			"1. Проверка дали 2 точки съвпадат" << endl;
 		cin >> metod;
 		switch (metod) {
 		case 1:
 			cin >> p2;
 			if (p1 == p2)
-				cout << "yes";
+				cout << "Да" << endl;
 			else {
-				cout << "no";
+				cout << "Не" << endl;
 			}
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 				if (input=='y') {
 				goto Label1;
 			}
 			else if (input=='n'){
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -58,31 +60,31 @@ int main() {
 		}
 		break;
 	case 2:
-		cout << "Vuvedi vektor: ";
+		cout << "Въведете стойности на вектора: " << endl;
 		cin >> v1;
-		Label3: cout << "Izberete operaciq za obekta: " << endl <<
-			"1. Izchislqvane na duljina na vektor" << endl <<
-			"2. Izchislqvane na posoka na vektor" << endl <<
-			"3. Proekciq na vektor vurhu drug vektor" << endl <<
-			"4. Proverka za nulev vektor" << endl <<
-			"5. Proverka za usporednost na 2 vektora" << endl <<
-			"6. Proverka za perpendikulqrnost na 2 vektora" << endl <<
-			"7. Subirane na 2 vektora" << endl <<
-			"8. Umnojenie na vektor s realno chislo" << endl <<
-			"9. Skalarno proizvedenie na 2 vektora " << endl <<
-			"10. Vektorno proizvedenie na 2 vektora" << endl <<
-			"11. Vektorno proizvedenie na 3 vektora" << endl;
+		Label3: cout << "Моля изберете операция за обекта: " << endl <<
+			"1. Изчисляване на дължина на вектор" << endl <<
+			"2. Изчисляване на посока на вектор " << endl <<
+			"3. Проекция на вектор върху друг вектор" << endl <<
+			"4. Проверка за нулев вектор" << endl <<
+			"5. Проверка за успоредност на два вектора" << endl <<
+			"6. Проверка за перпендикулярност на два вектора" << endl <<
+			"7. Събиране на два вектора" << endl <<
+			"8. Умножение на дектор с реално число" << endl <<
+			"9. Скаларно произведение на два вектора " << endl <<
+			"10. Векторно произведение на два вектора" << endl <<
+			"11. Векторно произведение на три вектора" << endl;
 		cin >> metod;
 		switch (metod) {
 		case 1:
-			cout << "duljinata na vektora e: " << v1.VectorLength();
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << "Дължината на вектора е:  " << v1.VectorLength() << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
 				goto Label3;
 			}
 			else if (input == 'n') {
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -94,7 +96,7 @@ int main() {
 			break;
 		case 2:try {
 		
-			cout << "posokata na vektora e:" << v1.VectorDirection();
+			cout << "Посоката на вектора е: " << v1.VectorDirection() << endl;
 			
 		}
 			   catch (VectorLenghtException &ex){
@@ -103,13 +105,13 @@ int main() {
 				   system("pause");
 				   return 1;
 			   }
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
 				goto Label3;
 			}
 			else if (input == 'n') {
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -120,16 +122,16 @@ int main() {
 			}
 			break;
 		case 3:
-			cout << "Vuvedete vtori vektor: " << endl;
+			cout << "Моля въведете координатите на втори вектор: " << endl;
 			cin >> v2;
-			cout << "Proekcita e: " << v1.VectorProjection(v2);
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << "Проекцията е: " << v1.VectorProjection(v2) << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
 				goto Label3;
 			}
 			else if (input == 'n') {
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -141,18 +143,18 @@ int main() {
 			break;
 		case 4:
 			if (v1.ZeroVector() == true) {
-				cout << "yes";
+				cout << "Да" << endl;
 			}
 			else {
-				cout << "no";
+				cout << "Не" << endl;
 			}
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
 				goto Label3;
 			}
 			else if (input == 'n') {
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -164,13 +166,13 @@ int main() {
 			break;
 		case 5:
 			try {
-				cout << "Vuvedete vtori vektor: " << endl;
+				cout << "Моля въведете координатите на втори вектор: " << endl;
 				cin >> v2;
 				if (v1.VectorsParallel(v2) == true) {
-					cout << "yes";
+					cout << "Да" << endl;
 				}
 				else {
-					cout << "no";
+					cout << "Не" << endl;
 				}
 			}
 			catch (VectorLenghtException &ex) {
@@ -179,13 +181,13 @@ int main() {
 				system("pause");
 				return 2;
 			}
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
 				goto Label3;
 			}
 			else if (input == 'n') {
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -197,14 +199,14 @@ int main() {
 			break;
 		case 6:
 			try {
-				cout << "Vuvedete vtori vektor: " << endl;
+				cout << "Моля въведете координатите на втори вектор: " << endl;
 				cin >> v2;
 				if (v1.VectorsPerpendicular(v2) == true) {
-					cout << "yes";
-				}
-				else {
-					cout << "no";
-				}
+						cout << "Да" << endl;
+					}
+					else {
+						cout << "Не" << endl;
+					}
 			}
 			catch (VectorLenghtException &ex) {
 				ex.rep(cerr);
@@ -212,13 +214,13 @@ int main() {
 				system("pause");
 				return 3;
 			}
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
 				goto Label3;
 			}
 			else if (input == 'n') {
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -229,16 +231,16 @@ int main() {
 			}
 			break;
 		case 7:
-			cout << "Vuvedete vtori vektor: " << endl;
+			cout << "Моля въведете координатите на втори вектор: " << endl;
 			cin >> v2;
-			cout << v1 + v2;
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << v1 + v2 << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
 				goto Label3;
 			}
 			else if (input == 'n') {
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -249,16 +251,17 @@ int main() {
 			}
 			break;
 		case 8:
-			cout << "Vuvedete realno chilso: " << endl;
+			cout << "Моля въведете реално число: " << endl;
 			cin >> realnoChislo;
+			cout << endl;
 			cout << v1*realnoChislo;
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
 				goto Label3;
 			}
 			else if (input == 'n') {
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -269,16 +272,16 @@ int main() {
 			}
 			break;
 		case 9:
-			cout << "Vuvedete vtori vektor: " << endl;
+			cout << "Моля въведете координатите на втори вектор: " << endl;
 			cin >> v2;
 			cout << v1*v2;
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
 				goto Label3;
 			}
 			else if (input == 'n') {
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -289,17 +292,17 @@ int main() {
 			}
 			break;
 		case 10:
-			cout << "Vuvedete vtori vektor: " << endl;
+			cout << "Моля въведете координатите на втори вектор: " << endl;
 			cin >> v2;
 			v3 = v1^v2;
 			cout << v3;
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
 				goto Label3;
 			}
 			else if (input == 'n') {
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -310,18 +313,18 @@ int main() {
 			}
 			break;
 		case 11:
-			cout << "Vuvedete vtori vektor: " << endl;
+			cout << "Моля въведете координатите на втори вектор: " << endl;
 			cin >> v2;
-			cout << "Vuvedete treti vektor: " << endl;
+			cout << "Моля въведете координатите на трети вектор: " << endl;
 			cin >> v3;
 			cout << v1(v2, v3);
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
 				goto Label3;
 			}
 			else if (input == 'n') {
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -334,33 +337,33 @@ int main() {
 		}
 		break;
 	case 3: {
-		cout << "Vuvedi tochka: ";
+		cout << "Моля въведете координатите на точка: " << endl;
 		cin >> p1;
-		cout << "Vuvedi tochka: ";
+		cout << "Моля въведете координатите на точка: " << endl;
 		cin >> p2;
 		Line l1(p1, p2);
-	Label4:	cout << "Izberete operaciq za obekta: " << endl <<
-			"1. Namirane posoka na liniqta" << endl <<
-			"2. Namirane na normalen vektor" << endl <<
-			"3. Namirane na ugul mejdu 2 pravi" << endl <<
-			"4. Proverka dali dadena tochka leji na dadenata prava" << endl <<
-			"5. Proverka dali dadena prava e usporedna na druga prava" << endl <<
-			"6. Proverka dali prava suvpada s druga prava" << endl <<
-			"7. Proverka dali prava presicha druga prava" << endl <<
-			"8. Proverka dali prava e krustosana s druga prava" << endl <<
-			"9. Proverka dali prava e perpendikulqrna na druga prava" << endl;
+	Label4:	cout << "Изберете операция за обекта: " << endl <<
+			"1. Намиране на посока на линията" << endl <<
+			"2. Намиране на нормален вектор" << endl <<
+			"3. Намиране на ъгъл между две прави" << endl <<
+			"4. Проверка дали дадена точка лежи на дадена права" << endl <<
+			"5. Проверка дали дадена права е успоредна на друга права" << endl <<
+			"6. Проверка дали права съвпада с друга права" << endl <<
+			"7. Проверка дали права пресича друга права" << endl <<
+			"8. Проверка дали права е кръстосана с друга права" << endl <<
+			"9. Проверка дали права е перпендикулярна на друга права" << endl;
 		cin >> metod;
 		switch (metod) {
 		case 1: {
-			cout << "Posoka na liniqta: ";
-			cout << l1.LineDirection();
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << "Посока на линията: " << endl;
+			cout << l1.LineDirection() << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
 				goto Label4;
 			}
 			else if (input == 'n') {
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -372,15 +375,15 @@ int main() {
 		}
 			break;
 		case 2: {
-			cout << "Normalen vektor: ";
-			cout << l1.NormalVector();
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << "Нормален вектор: ";
+			cout << l1.NormalVector() << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
 				goto Label4;
 			}
 			else if (input == 'n') {
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -392,17 +395,18 @@ int main() {
 		}
 			break;
 		case 3: {
-			cout << "vuvedete tochki za vtora liniq: " << endl;
+			cout << "Моля въведете координатите на две точки за втора линия: " << endl;
 			cin >> p3 >> p4;
+			cout << endl;
 			Line l2(p3, p4);
-			cout << l1.AngleBetweenLines(l2);
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << l1.AngleBetweenLines(l2) << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
 				goto Label4;
 			}
 			else if (input == 'n') {
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -414,21 +418,22 @@ int main() {
 		}
 				break;
 		case 4: {
-			cout << "Vuvedete tochka: ";
+			cout << "Моля въведете координатите на точка: " << endl;
 			cin >> p3;
+			cout << endl;
 			if (l1 + p1) {
-				cout << "Yes";
+				cout << "Да" << endl;
 			}
 			else {
-				cout << "No";
+				cout << "Не" << endl;
 			}
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
 				goto Label4;
 			}
 			else if (input == 'n') {
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -440,23 +445,24 @@ int main() {
 		}
 			break;
 		case 5: {
-			cout << "vuvedete tochki za vtora liniq: " << endl;
+			cout << "Моля въведете координатите на две точки за втора линия: " << endl;
 			cin >> p3 >> p4;
+			cout << endl;
 			Line l2(p3, p4);
 			if (l1 || l2) {
-				cout << "Yes";
+				cout << "Да" << endl;
 			}
 			else {
-				cout << "No";
+				cout << "Не" << endl;
 			}
 
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
 				goto Label4;
 			}
 			else if (input == 'n') {
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -468,23 +474,24 @@ int main() {
 		}
 				break;
 		case 6: {
-			cout << "vuvedete tochki za vtora liniq: " << endl;
+			cout << "Моля въведете координатите на две точки за втора линия: " << endl;
 			cin >> p3 >> p4;
+			cout << endl;
 			Line l2(p3, p4);
 			if (l1 == l2) {
-				cout << "Yes";
+				cout << "Да" << endl;
 			}
 			else {
-				cout << "No";
+				cout << "Не" << endl;
 			}
 
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
 				goto Label4;
 			}
 			else if (input == 'n') {
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -496,23 +503,23 @@ int main() {
 		}
 				break;
 		case 7: {
-			cout << "vuvedete tochki za vtora liniq: " << endl;
+			cout << "Моля въведете координатите на две точки за втора линия: " << endl;
 			cin >> p3 >> p4;
+			cout << endl;
 			Line l2(p3, p4);
 			if (l1 && l2) {
-				cout << "Yes";
+				cout << "Да" << endl;
 			}
 			else {
-				cout << "No";
+				cout << "Не" << endl;
 			}
-
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
 				goto Label4;
 			}
 			else if (input == 'n') {
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -524,23 +531,22 @@ int main() {
 		}
 				break;
 		case 8: {
-			cout << "vuvedete tochki za vtora liniq: " << endl;
+			cout << "Моля въведете координатите на две точки за втора линия: " << endl;
 			cin >> p3 >> p4;
 			Line l2(p3, p4);
 			if (l1 != l2) {
-				cout << "Yes";
+				cout << "Да" << endl;
 			}
 			else {
-				cout << "No";
+				cout << "Не" << endl;
 			}
-
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
 				goto Label4;
 			}
 			else if (input == 'n') {
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -552,22 +558,23 @@ int main() {
 		}
 				break;
 		case 9: {
-			cout << "vuvedete tochki za vtora liniq: " << endl;
+			cout << "Моля въведете координатите на две точки за втора линия: " << endl;
 			cin >> p3 >> p4;
+			cout << endl;
 			Line l2(p3, p4);
 			if (l1 | l2) {
-				cout << "Yes";
+				cout << "Да" << endl;
 			}
 			else {
-				cout << "No";
+				cout << "Не" << endl;
 			}
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
 				goto Label4;
 			}
 			else if (input == 'n') {
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -587,12 +594,11 @@ int main() {
 
 	case 4: {
 		try {
-	
-		cout << "Vuvedi tochka: ";
+		cout << "Моля въведете координатите първата точка от триъгълника: " << endl;
 		cin >> p1;
-		cout << "Vuvedi tochka: ";
+		cout << "Моля въведете координатите втората точка от триъгълника: " << endl;
 		cin >> p2;
-		cout << "Vuvedi tochka: ";
+		cout << "Моля въведете координатите третата точка от триъгълника: " << endl;
 		cin >> p3;
 		if (p1 == p2) {
 			throw EqualPointException(p1, p2);
@@ -613,33 +619,27 @@ int main() {
 		} 
 		Triangle t1(p1, p2, p3);
 
-		//cout << "Vuvedi tochka: ";
-		//cin >> p1;
-		//cout << "Vuvedi tochka: ";
-		//cin >> p2;
-		//cout << "Vuvedi tochka: ";
-		//cin >> p3;
-		//Triangle t1(p1, p2, p3);
-
-		Label5:	cout << "Izberete operaciq za obekta: " << endl <<
-				"1. Opredelenq vida na triugulnika " << endl <<
-				"2. Namirane na liceto na triugulnika " << endl <<
-				"3. Namirane na perimetura na triugulnika " << endl <<
-				"4. Namirane na medicentura na triugulnika " << endl <<
-				"5. Proverka dali tochka e ot vutreshnostta na triugulnika " << endl <<
-				"6. Proverka dali tochka e izvun triugulnika " << endl <<
-				"7. Proverka dali tochka leji vurhu nqkoq ot stranite na triugulnika " << endl;
+		Label5:	cout << "Моля изберете операция за обекта: " << endl <<
+				"1. Определяне вида на триъгълника" << endl <<
+				"2. Намиране на лицето на триъгълника " << endl <<
+				"3. Намиране на периметъра на триъгълника " << endl <<
+				"4. Намиране на медицентъра на триъгълника " << endl <<
+				"5. Проверка дали точка е от вътрешността на триъгълника " << endl <<
+				"6. Проверка дали точка е извър триъгълника " << endl <<
+				"7. Проверка дали точка лежи върху някоя от страните на триъгълника " << endl;
 			cin >> metod;
 			switch (metod) {
 			case 1:
+			cout << "Триъгълникът е: ";
 			t1.TriangleType();
-			cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+			cout << endl;
+			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
 				goto Label5;
 			}
 			else if (input == 'n') {
-				cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+				cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label2;
@@ -650,14 +650,16 @@ int main() {
 			}
 				break;
 			case 2:
+				cout << "Лицето на триъгълника е: ";
 				cout << t1.AreaTriangle();
-				cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+				cout << endl;
+				cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label5;
 				}
 				else if (input == 'n') {
-					cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+					cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 					cin >> input;
 					if (input == 'y') {
 						goto Label2;
@@ -668,14 +670,16 @@ int main() {
 				}
 				break;
 			case 3:
+				cout << "Периметърът на триъгълника е: ";
 				cout << t1.TrianglePerimeter();
-				cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+				cout << endl;
+				cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label5;
 				}
 				else if (input == 'n') {
-					cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+					cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 					cin >> input;
 					if (input == 'y') {
 						goto Label2;
@@ -686,14 +690,16 @@ int main() {
 				}
 				break;
 			case 4:
+				cout << "Медицентърът е с координати: " << endl;
 				cout << t1.centroid();
-				cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+				cout << endl;
+				cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label5;
 				}
 				else if (input == 'n') {
-					cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+					cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 					cin >> input;
 					if (input == 'y') {
 						goto Label2;
@@ -704,21 +710,22 @@ int main() {
 				}
 				break;
 			case 5:
-				cout << "Vuvedi tochka: ";
+				cout << "Моля въведете координатите на точка: " << endl;
 				cin >> p1;
+				cout << endl;
 				if (p1 < t1) {
-					cout << "Yes";
+					cout << "Да" << endl;
 				}
 				else {
-					cout << "No";
+					cout << "Не" << endl;
 				}
-				cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+				cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label5;
 				}
 				else if (input == 'n') {
-					cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+					cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 					cin >> input;
 					if (input == 'y') {
 						goto Label2;
@@ -729,21 +736,22 @@ int main() {
 				}
 				break;
 			case 6:
-				cout << "Vuvedi tochka: ";
+				cout << "Моля въведете координатите на точка: " << endl;
 				cin >> p1;
+				cout << endl;
 				if (p1 > t1) {
-					cout << "Yes";
+					cout << "Да" << endl;
 				}
 				else {
-					cout << "No";
+					cout << "Не" << endl;
 				}
-				cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+				cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label5;
 				}
 				else if (input == 'n') {
-					cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+					cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 					cin >> input;
 					if (input == 'y') {
 						goto Label2;
@@ -754,21 +762,22 @@ int main() {
 				}
 				break;
 			case 7:
-				cout << "Vuvedi tochka: ";
+				cout << "Моля въведете координатите на точка: " << endl;
 				cin >> p1;
+				cout << endl;
 				if (p1 == t1) {
-					cout << "Yes";
+					cout << "Да" << endl;
 				}
 				else {
-					cout << "No";
+					cout << "Не" << endl;
 				}
-				cout << "Jelaete li da izberete nova operaciq? (y/n)" << endl;
+				cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 				cin >> input;
 				if (input == 'y') {
 					goto Label5;
 				}
 				else if (input == 'n') {
-					cout << "Jelaete li da izberete nov geometrichen obekt? (y/n)" << endl;
+					cout << "Желаете ли да изберете нов геометричен обект? (y/n)" << endl;
 					cin >> input;
 					if (input == 'y') {
 						goto Label2;

@@ -12,7 +12,7 @@ public:
 	VectorLenghtException( double reason ) :exception("Index:"), reason(reason) {}
 	
 	ostream& rep(ostream & os) {
-		os << "The length of the vector is 0. " << endl;
+		os << "Дължината на вектора е 0. " << endl;
 		return os;
 	}
 private: 

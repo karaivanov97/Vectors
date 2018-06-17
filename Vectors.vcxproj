@@ -112,9 +112,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Element.h" />
+    <ClInclude Include="EqualPointException.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="Point.h" />
-    <ClInclude Include="Triangel.h" />
+    <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="VectorLenghtException.h" />
   </ItemGroup>
@@ -123,7 +124,7 @@
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Point.cpp" />
-    <ClCompile Include="Triangel.cpp" />
+    <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Vector.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

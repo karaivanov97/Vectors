@@ -15,6 +15,7 @@ Point& Point::operator=(const Point & rhs) {
 	}
 	return *this;
 	}
+//Метод за проверка дали две точки съвпадат
 bool Point::operator==(const Point& rhs) {
 	return (x == rhs.x&&y == rhs.y&&z == rhs.z);
 	}
@@ -45,11 +46,11 @@ void Point::set_z(double z) {
 	 return out;
 	}
  std::istream& Point::extractor(std::istream & in) {
-	 std::cout << "Enter x: ";
+	 std::cout << "Въведи x: ";
 	 in >> x;
-	 std::cout << "Enter y: ";
+	 std::cout << "Въведи y: ";
 	 in >> y;
-	 std::cout << "Enter z: ";
+	 std::cout << "Въведи z: ";
 	 in >> z;
 	 return in;
 	}
