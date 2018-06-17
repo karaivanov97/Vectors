@@ -30,9 +30,9 @@ Vector Vector::VectorDirection()const
 }
 //Метод за проекция на вектор върху друг вектор
  Vector Vector::VectorProjection(const Vector& rhs) {
-	 double vecmult = get_x()*rhs.get_x() + get_y()*rhs.get_y() + get_z()*rhs.get_z();
-	 double div = (vecmult / pow(rhs.VectorLength(), 2));
-	 return Vector(div*rhs.get_x(), div*rhs.get_y(), div*rhs.get_z());
+	 double vectorMult = get_x()*rhs.get_x() + get_y()*rhs.get_y() + get_z()*rhs.get_z();
+	 double d = (vectorMult / pow(rhs.VectorLength(), 2));
+	 return Vector(d*rhs.get_x(), d*rhs.get_y(), d*rhs.get_z());
  }
  //Метод за проверка за нулев вектор
 
@@ -71,15 +71,15 @@ Vector Vector::VectorDirection()const
  }
  //Метод за векторно произведение на три вектора
  double Vector::operator ()(const Vector & lhs, const Vector & rhs) {
-	 double a = get_x()*lhs.get_y()*rhs.get_z();
-	 double b = get_y()*lhs.get_z()*rhs.get_x();
-	 double c = get_z()*lhs.get_x()*rhs.get_y();
-	 double first = a + b + c;
+	 double a1 = get_x()*lhs.get_y()*rhs.get_z();
+	 double b1 = get_y()*lhs.get_z()*rhs.get_x();
+	 double c1 = get_z()*lhs.get_x()*rhs.get_y();
+	 double first = a1 + b1 + c1;
 
-	 double d = get_z()*lhs.get_y()*rhs.get_x();
-	 double e = get_x()*lhs.get_z()*rhs.get_y();
-	 double f = get_y()*lhs.get_x()*rhs.get_z();
-	 double second = d + e + f;
+	 double a2 = get_z()*lhs.get_y()*rhs.get_x();
+	 double b2 = get_x()*lhs.get_z()*rhs.get_y();
+	 double c2 = get_y()*lhs.get_x()*rhs.get_z();
+	 double second = a2 + b2 + c2;
 
 	 return fabs(first - second);
 

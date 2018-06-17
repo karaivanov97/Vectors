@@ -62,7 +62,6 @@ double Triangle::AreaTriangle()const
 	double AB = fabs(sqrt(pow(A.get_x() - B.get_x(), 2) + (pow(A.get_y() - B.get_y(), 2)) + (pow(A.get_z() - B.get_z(), 2))));
 	//std::cout << "ab = " << AB << std::endl;
 	double p = (AC + BC + AB) / 2;
-
 	double area = sqrt((p)*(p - AB)*(p - AC)*(p - BC));
 	return area;
 }

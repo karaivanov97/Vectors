@@ -25,7 +25,7 @@ Line & Line::operator=(const Line& rhs)
 	return *this;
 }
 
-std::ostream& Line::inserter(std::ostream &out) const
+std::ostream& Line::inserter(std::ostream& out) const
 {
 	std::cout << "Първата точка е: \n" << a;
 	std::cout << "Втората точка е: \n" << b;
@@ -60,18 +60,18 @@ Vector Line::LineDirection()const
 //Метод за намиране на нормален вектор
 Vector Line::NormalVector()const
 {
-	Vector v(a, b);
-	return v.VectorDirection();
+	Vector vector(a, b);
+	return vector.VectorDirection();
 }
 //Метод за намиране на ъгъл между две прави
 
 double Line::AngleBetweenLines(const Line& line2)const
 {
-	Vector v1(a,b);
-	Vector v2(line2.a, line2.b);
-	double v1Length = v1.VectorLength();
-	double v2Length = v2.VectorLength();
-	double angle = (v1*v2) / (v1Length*v2Length);
+	Vector vector1(a,b);
+	Vector vector2(line2.a, line2.b);
+	double vector1Length = vector1.VectorLength();
+	double vector2Length = vector2.VectorLength();
+	double angle = (vector1*vector2) / (vector1Length*vector2Length);
 	angle = acos(angle);
 
 	return angle;
@@ -122,8 +122,8 @@ bool Line::operator==(const Line& rhs) const
 //Метод за проверка дали дадена права е перпендикулярна на друга права
 bool Line::operator |(const Line& rhs)const
 {
-	Vector v1(a, b);
-	Vector v2(rhs.a, rhs.b);
-	return v1.VectorsPerpendicular(v2);
+	Vector vector1(a, b);
+	Vector vector2(rhs.a, rhs.b);
+	return vector1.VectorsPerpendicular(vector2);
 }
 

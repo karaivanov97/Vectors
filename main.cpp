@@ -20,7 +20,7 @@ int main() {
 	Line l2(p1, v1);
 	Triangle t1(p1, p2, p3);
 	unsigned int figure;
-	double realnoChislo;
+	double real;
 	size_t metod;
 	char input = ' ';
 
@@ -252,9 +252,9 @@ Label2: cout << "Моля изберете вид геометричен обект: 1. Точка, 2. Вектор, 3. Ли
 			break;
 		case 8:
 			cout << "Моля въведете реално число: " << endl;
-			cin >> realnoChislo;
+			cin >> real;
 			cout << endl;
-			cout << v1*realnoChislo;
+			cout << v1*real;
 			cout << "Желаете ли да изберете нова операция? (y/n)" << endl;
 			cin >> input;
 			if (input == 'y') {
